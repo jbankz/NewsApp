@@ -82,7 +82,7 @@ public class CnnFragment extends Fragment {
                 progressBar.setVisibility(View.VISIBLE);
                 getCnnNews();
             } else {
-                Toast.makeText(getContext(), "Please obtain your api key at www.news.org", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "Please obtain your api key at newsapi.org", Toast.LENGTH_LONG).show();
             }
         } else {
             Toast.makeText(getContext(), "Unable to Connect", Toast.LENGTH_SHORT).show();
