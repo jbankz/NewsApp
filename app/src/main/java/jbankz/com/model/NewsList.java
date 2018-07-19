@@ -6,11 +6,8 @@ import android.os.Parcelable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by King Jaycee on 26/10/2017.
- */
+public class NewsList implements Parcelable{
 
-public class pojo implements Parcelable {
     @SerializedName("author")
     @Expose
     private String author;
@@ -30,7 +27,42 @@ public class pojo implements Parcelable {
     @Expose
     private String publishedAt;
 
-    public pojo(){}
+
+    protected NewsList(Parcel in) {
+        author = in.readString();
+        title = in.readString();
+        description = in.readString();
+        url = in.readString();
+        urlToImage = in.readString();
+        publishedAt = in.readString();
+    }
+
+    public static final Creator<NewsList> CREATOR = new Creator<NewsList>() {
+        @Override
+        public NewsList createFromParcel(Parcel in) {
+            return new NewsList(in);
+        }
+
+        @Override
+        public NewsList[] newArray(int size) {
+            return new NewsList[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(author);
+        parcel.writeString(title);
+        parcel.writeString(description);
+        parcel.writeString(url);
+        parcel.writeString(urlToImage);
+        parcel.writeString(publishedAt);
+    }
 
     public String getAuthor() {
         return author;
@@ -80,53 +112,7 @@ public class pojo implements Parcelable {
         this.publishedAt = publishedAt;
     }
 
-    @Override
-    public String toString() {
-        return "pojo{" +
-                "author='" + author + '\'' +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", url='" + url + '\'' +
-                ", urlToImage='" + urlToImage + '\'' +
-                ", publishedAt='" + publishedAt + '\'' +
-                '}';
+    public static Creator<NewsList> getCREATOR() {
+        return CREATOR;
     }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(author);
-        parcel.writeString(title);
-        parcel.writeString(description);
-        parcel.writeString(url);
-        parcel.writeString(urlToImage);
-        parcel.writeString(publishedAt);
-
-    }
-
-    protected pojo(Parcel in) {
-        author = in.readString();
-        title = in.readString();
-        description = in.readString();
-        url = in.readString();
-        urlToImage = in.readString();
-        publishedAt = in.readString();
-    }
-
-    public static final Creator<pojo> CREATOR = new Creator<pojo>() {
-        @Override
-        public pojo createFromParcel(Parcel in) {
-            return new pojo(in);
-        }
-
-        @Override
-        public pojo[] newArray(int size) {
-            return new pojo[size];
-        }
-    };
-
 }

@@ -1,5 +1,4 @@
 <resources>
     <string name="app_name">NewsApp</string>
-    <string name="title_activity_main">MainActivity</string>
-    <string name="title_activity_scrolling">ScrollingActivity</string>
+    <string name="title_activity_main">News App</string>
 </resources>

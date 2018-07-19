@@ -3,6 +3,7 @@ package jbankz.com.model;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by King Jaycee on 26/10/2017.
@@ -16,7 +17,7 @@ public class Response {
     @SerializedName("sortBy")
     private String sortBy;
     @SerializedName("articles")
-    private ArrayList<pojo> articles;
+    private List<NewsList> articles;
 
     public Response() {
     }
@@ -45,11 +46,11 @@ public class Response {
         this.sortBy = sortBy;
     }
 
-    public ArrayList<pojo> getArticles() {
+    public List<NewsList> getArticles() {
         return articles;
     }
 
-    public void setArticles(ArrayList<pojo> articles) {
+    public void setArticles(List<NewsList> articles) {
         this.articles = articles;
     }
 
